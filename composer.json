@@ -1,0 +1,13 @@
+{
+    "name": "php-playground-mvc",
+    "description": "Another MVC Playground with PHP",
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zendframework": "~2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": ["module/Application/src/Application/"]
+        }
+    }
+}
