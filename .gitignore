@@ -1,4 +1,4 @@
-nbproject
+bproject
 ._*
 .vagrant
 .~lock.*
@@ -9,3 +9,4 @@ nbproject
 .settings
 vendor
 composer.phar
+*.iml
