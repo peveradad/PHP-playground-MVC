@@ -11,4 +11,7 @@ class MultOperation implements OperationInterface
         $c = $a * $b;
         return $c;
     }
+    public function getPriority(){
+        return 3;
+    }
 }

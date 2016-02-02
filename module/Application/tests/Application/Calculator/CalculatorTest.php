@@ -27,7 +27,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider divDataProvider
      */
-    public function testCanDoDivision($a,$b,$c,$d)
+    public function testCanDoDivisionOperation($a,$b,$c,$d)
     {
 
         $divOperation = new DivOperation;
@@ -39,7 +39,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider moltDataProvider
      */
-    public function testCanDoMultiplication($a,$b,$c,$d)
+    public function testCanDoMultiplicationOperation($a,$b,$c,$d)
     {
 
         $multOperation = new MultOperation;
@@ -51,7 +51,7 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider diffDataProvider
      */
-    public function testCanDoDifference($a,$b,$c,$d)
+    public function testCanDoDifferenceOperation($a,$b,$c,$d)
     {
 
         $difOperation = new DifOperation;

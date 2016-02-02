@@ -9,4 +9,8 @@ class SumOperation implements OperationInterface
         $c = $a + $b;
         return $c;
     }
+    public function getPriority()
+    {
+       return 1;
+    }
 }

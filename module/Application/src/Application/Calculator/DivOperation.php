@@ -11,4 +11,8 @@ class DivOperation implements OperationInterface
         $c = $a / $b;
         return $c;
     }
+    public function getPriority()
+    {
+       return 4;
+    }
 }

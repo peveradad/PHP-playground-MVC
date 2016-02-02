@@ -6,14 +6,29 @@ namespace Application\Calculator;
 
 class Calculator
 {
-    public function calculate(OperationInterface $operation,array $num){
-        $result= $num[0];
-        unset($num[0]);
+    public function calculate(array $operazione, array $num)
+    {
 
-        foreach($num as $number) {
-            $result = $operation->apply($result,$number);
+        $priority = $operazione[0];
+        unset($operazione[0]);
+        foreach ($operazione as $number) {
+
         }
 
-        return $result;
+        foreach ($operazione as $number) {
+
+            if ($priority->getPriority() < $number->getPriority()) {
+                $priority = $number;
+
+            } else {
+
+                foreach ($priority as $number) {
+
+                }
+            }
+
+        }
+
+
     }
 }
