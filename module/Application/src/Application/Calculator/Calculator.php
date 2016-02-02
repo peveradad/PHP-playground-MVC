@@ -8,27 +8,11 @@ class Calculator
 {
     public function calculate(array $operazione, array $num)
     {
-
-        $priority = $operazione[0];
-        unset($operazione[0]);
-        foreach ($operazione as $number) {
-
+        $numDiv = [];
+        $numSott = [];
+        $numSum = [];
+        foreach($operazione as $key => $number){
+            //usare num per fare le moltiplicazioni e poi passarle su div cosi via
         }
-
-        foreach ($operazione as $number) {
-
-            if ($priority->getPriority() < $number->getPriority()) {
-                $priority = $number;
-
-            } else {
-
-                foreach ($priority as $number) {
-
-                }
-            }
-
-        }
-
-
     }
 }
