@@ -6,7 +6,7 @@ namespace Application\Test\Calculator;
 use Application\Calculator\Calculator;
 use Application\Calculator\DivOperation;
 use Application\Calculator\SumOperation;
-use Application\Calculator\MoltOperation;
+use Application\Calculator\MultOperation;
 use Application\Calculator\DifOperation;
 use PHPUnit_Framework_TestCase;
 
@@ -39,13 +39,13 @@ class CalculatorTest extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider moltDataProvider
      */
-    public function testCanDoMoltiplication($a,$b,$c,$d)
+    public function testCanDoMultiplication($a,$b,$c,$d)
     {
 
-        $moltOperation = new MoltOperation;
+        $multOperation = new MultOperation;
         $calculator = new Calculator;
         $num = [$a,$b,$c];
-        $result = $calculator->calculate($moltOperation, $num);
+        $result = $calculator->calculate($multOperation, $num);
         $this->assertEquals($d, $result);
     }
     /**

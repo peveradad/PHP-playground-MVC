@@ -3,22 +3,22 @@
 
 namespace Application\Test\Calculator;
 
-use Application\Calculator\MoltOperation;
+use Application\Calculator\MultOperation;
 use PHPUnit_Framework_TestCase;
 
 class MoltOperationTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @dataProvider moltiplicateDataProvider
+     * @dataProvider multiplicateDataProvider
      */
-    public function testThatCanCalculateMoltiplicate($a, $b, $c)
+    public function testThatCanCalculateMultiplicate($a, $b, $c)
     {
-        $operation = new MoltOperation;
+        $operation = new MultOperation;
         $result = $operation->apply($a, $b);
         $this->assertEquals($c, $result);
     }
 
-    public function moltiplicateDataProvider()
+    public function multiplicateDataProvider()
     {
         return array(
             array(4, 2, 8),

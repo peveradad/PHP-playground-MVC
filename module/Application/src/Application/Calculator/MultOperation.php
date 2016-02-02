@@ -4,7 +4,7 @@
 namespace Application\Calculator;
 
 
-class MoltOperation implements OperationInterface
+class MultOperation implements OperationInterface
 {
     public function apply($a, $b)
     {
