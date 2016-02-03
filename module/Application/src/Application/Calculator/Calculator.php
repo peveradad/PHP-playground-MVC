@@ -6,13 +6,9 @@ namespace Application\Calculator;
 
 class Calculator
 {
-    public function calculate(array $operazione, array $num)
+    public function calculate(OperationInterface $operazione, $num1, $num2)
     {
-        $numDiv = [];
-        $numSott = [];
-        $numSum = [];
-        foreach($operazione as $key => $number){
-            //usare num per fare le moltiplicazioni e poi passarle su div cosi via
-        }
+        $result  = $operazione->apply($num1,$num2);
+        return $result;
     }
 }
