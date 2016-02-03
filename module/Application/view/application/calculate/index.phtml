@@ -1,0 +1,165 @@
+
+
+<input type="text" id="visualizza"><br><br>
+<input type="button" class="btn" value="1" id="1">
+<input type="button" class="btn" value="2" id="2">
+<input type="button" class="btn" value="3" id="3">
+<input type="button" class="btn" value="+" id="addizione"><br><br>
+<input type="button" class="btn" value="4" id="4">
+<input type="button" class="btn" value="5" id="5">
+<input type="button" class="btn" value="6" id="6">
+<input type="button" class="btn" value="-" id="sottrazione"><br><br>
+<input type="button" class="btn" value="7" id="7">
+<input type="button" class="btn" value="8" id="8">
+<input type="button" class="btn" value="9" id="9">
+<input type="button" class="btn" value="x" id="moltiplicazione"><br><br>
+<input type="button" class="btn" value="0" id="0">
+<input type="button" class="btn" value="00" id="00">
+<button  class="btn" id="risultato">=</button>
+<input type="button" class="btn" value=":" id="divisione"><br><br>
+
+
+<script>
+
+(function () {
+        $num1 = 0;
+        $num1Vis = "";
+        $numVis2 = "";
+        $num2 = 0;
+        $operazione = "";
+        $cal = 0;
+        $ris = 0;
+        if ($cal == 0) {
+            $("#1").click(function () {
+                $num1Vis = $num1Vis + "1";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#2").click(function () {
+                $num1Vis = $num1Vis + "2";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#3").click(function () {
+                $num1Vis = $num1Vis + "3";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#4").click(function () {
+                $num1Vis = $num1Vis + "4";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#5").click(function () {
+                $num1Vis = $num1Vis + "5";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#6").click(function () {
+                $num1Vis = $num1Vis + "6";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#7").click(function () {
+                $num1Vis = $num1Vis + "7";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#8").click(function () {
+                $num1Vis = $num1Vis + "8";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#9").click(function () {
+                $num1Vis = $num1Vis + "9";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#0").click(function () {
+                $num1Vis = $num1Vis + "0";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#00").click(function () {
+                $num1Vis = $num1Vis + "00";
+                $("#visualizza").val($num1Vis);
+            });
+            $("#addizione").click(function () {
+                $num1 = $num1Vis;
+                $operazione = "addizione";
+                $("#visualizza").val("");
+                $num1Vis = "";
+                $cal = 1
+            });
+            $("#sottrazione").click(function () {
+                $num1 = $num1Vis;
+                $operazione = "sottrazione";
+                $("#visualizza").val("");
+                $num1Vis = "";
+                $cal = 1
+            });
+            $("#moltiplicazione").click(function () {
+                $num1 = $num1Vis;
+                $operazione = "moltiplicazione";
+                $("#visualizza").val("");
+                $num1Vis = "";
+                $cal = 1
+            });
+            $("#divisione").click(function () {
+                $num1 = $num1Vis;
+                $operazione = "divisione";
+                $("#visualizza").val("");
+                $num1Vis = "";
+                $cal = 1
+            });
+        } else if ($cal == 1) {
+            $("#1").click(function () {
+                $num2Vis = $num2Vis + "1";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#2").click(function () {
+                $num2Vis = $num2Vis + "2";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#3").click(function () {
+                $num2Vis = $num2Vis + "3";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#4").click(function () {
+                $num2Vis = $num2Vis + "4";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#5").click(function () {
+                $num2Vis = $num2Vis + "5";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#6").click(function () {
+                $num2Vis = $num2Vis + "6";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#7").click(function () {
+                $num2Vis = $num2Vis + "7";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#8").click(function () {
+                $num2Vis = $num2Vis + "8";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#9").click(function () {
+                $num2Vis = $num2Vis + "9";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#0").click(function () {
+                $num2Vis = $num2Vis + "0";
+                $("#visualizza").val($num2Vis);
+            });
+            $("#00").click(function () {
+                $num2Vis = $num2Vis + "00";
+                $("#visualizza").val($num2Vis);
+            });
+
+
+        }
+    $("#risultato").click(function () {
+        $.post("/calcolatrice/calcola",
+            {
+                num1: 2,
+                num2: 3,
+                operazione: "mul"
+
+            }, function(data) {
+                console.log(data);
+            });
+    });
+    })();
+</script>

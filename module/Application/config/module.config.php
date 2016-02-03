@@ -28,6 +28,16 @@ return array(
                     'route'    => '/calcolatrice',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Calculate',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+            'calculator_service' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/calcolatrice/calcola',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Calculate',
                         'action'     => 'calculate',
                     ),
                 ),
@@ -74,6 +84,9 @@ return array(
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+        'strategies' => array(
+            'ViewJsonStrategy',
         ),
     ),
     // Placeholder for console routes

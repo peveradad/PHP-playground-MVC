@@ -3,25 +3,34 @@
 namespace Application\Controller;
 
 
+use Application\Calculator\CalculateMap;
 use Application\Calculator\Calculator;
-use Application\Calculator\DifOperation;
-use Application\Calculator\DivOperation;
-use Application\Calculator\MultOperation;
-use Application\Calculator\SumOperation;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\JsonModel;
 use Zend\View\Model\ViewModel;
 
 class CalculateController extends AbstractActionController
 {
+    public function indexAction()
+    {
+        $viewModel = new ViewModel();
+        return $viewModel;
+    }
+
     public function calculateAction()
     {
-        $num1 = 2;
-        $num2 = 3;
-        $operazione =  new DivOperation();
+
+        $num1 = (int)$this->params()->fromPost('num1');
+        $num2 = (int)$this->params()->fromPost('num2');
+        $simbolo = $this->params()->fromPost('operazione');
+
+        if (!$num1 || !$num2 || !$simbolo) {
+            return new JsonModel(['result' => 0]);
+        }
+
         $calcolo = new Calculator();
-        $result = $calcolo->calculate($operazione, $num1,$num2);
-        $viewModel = new ViewModel();
-        $viewModel->setVariable('risultato', $result);
-        return $viewModel;
+        $result = $calcolo->calculate(CalculateMap::map($simbolo), $num1, $num2);
+
+        return new JsonModel(['result' => $result]);
     }
 }
