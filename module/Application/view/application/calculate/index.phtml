@@ -15,6 +15,7 @@
 <input type="button" class="btn" value="00" id="00">
 <button class="btn" id="risultato">=</button>
 <input type="button" class="btn" value=":" id="divisione"><br><br>
+<input type="button" class="btn" value="C" id="can">
 
 
 <script>
@@ -126,6 +127,20 @@
                 $("#visualizza").val($num2Vis);
             }
         });
+        $("#can").click(function () {
+            if ($num1 == 0) {
+                $num1Vis = "";
+                $("#visualizza").val($num1Vis);
+            } else if ($num1 != 0) {
+                $num2Vis = "";
+                if ($ris== $num1){
+                    var num1 = "";
+                    $num1 = 0;
+                }
+                $("#visualizza").val($num2Vis);
+
+            }
+        });
         $("#addizione").click(function () {
             $num1 = $num1 + 1
             $operazione = "sum";
@@ -158,15 +173,19 @@
                 console.log($num2Vis);
                 var num1 = $num1Vis;
                 var num2 = $num2Vis;
-                $num2Vis = ""
+                $num1Vis = "";
+                $num2Vis = "";
                 var operazione = $operazione
             } else if ($num1 > 1) {
+                console.log(num1);
+                console.log($num2Vis);
+                $ris=$num1;
                 var num1 = $num2;
                 var num2 = $num2Vis;
                 console.log(num1);
                 console.log(num2);
-                var operazione = $operazione
-                $num2Vis = ""
+                var operazione = $operazione;
+                $num2Vis = "";
             }
             $.post("/calcolatrice/calcola",
                 {
@@ -178,7 +197,7 @@
                     console.log(data.result);
                     $("#visualizza").val("");
                     $("#visualizza").val(data.result);
-                    $num2 = data.result
+                    $num2 = data.result;
                 });
         });
     })
