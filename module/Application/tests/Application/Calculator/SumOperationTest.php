@@ -33,10 +33,5 @@ class SumOperationTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function testSumPriority()
-    {
-        $operation = new SumOperation;
-        $result = $operation->getPriority();
-        $this->assertEquals(1, $result);
-    }
+
 }

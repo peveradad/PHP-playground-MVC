@@ -15,7 +15,7 @@ use PHPUnit_Framework_TestCase;
 class CalculateMapTest extends PHPUnit_Framework_TestCase
 {
     public function testMap (){
-        $operazione= "x";
+        $operazione= "mul";
         $riconoscimento = new CalculateMap;
         $result = $riconoscimento->map($operazione);
         $this->assertInstanceOf('\Application\Calculator\MultOperation',$result);

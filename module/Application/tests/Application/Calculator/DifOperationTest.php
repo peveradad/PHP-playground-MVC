@@ -32,10 +32,6 @@ class DifOperationTest extends PHPUnit_Framework_TestCase
 
         );
     }
-    public function testDifPriority(){
-        $operation = new DifOperation;
-        $result = $operation->getPriority();
-        $this->assertEquals(2, $result);
-    }
+
 
 }

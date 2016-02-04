@@ -32,9 +32,5 @@ class MoltOperationTest extends PHPUnit_Framework_TestCase
 
         );
     }
-    public function testMultiPriority(){
-        $control = new MultOperation;
-        $result = $control->getPriority();
-        $this->assertEquals(3, $result);
-    }
+
 }

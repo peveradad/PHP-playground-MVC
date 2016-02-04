@@ -23,12 +23,14 @@ class CalculateController extends AbstractActionController
         $num2 = (double)$this->params()->fromPost('num2');
         $simbolo = $this->params()->fromPost('operazione');
 
-        if (!$num1 || !$num2 || !$simbolo) {
+        if (!$simbolo) {
             return new JsonModel(['result' => 0]);
         }
 
         $calcolo = new Calculator();
         $result = $calcolo->calculate(CalculateMap::map($simbolo), $num1, $num2);
+
+
 
         return new JsonModel(['result' => $result]);
     }
