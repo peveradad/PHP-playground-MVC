@@ -19,9 +19,8 @@ class CalculateController extends AbstractActionController
 
     public function calculateAction()
     {
-
-        $num1 = (int)$this->params()->fromPost('num1');
-        $num2 = (int)$this->params()->fromPost('num2');
+        $num1 = (double)$this->params()->fromPost('num1');
+        $num2 = (double)$this->params()->fromPost('num2');
         $simbolo = $this->params()->fromPost('operazione');
 
         if (!$num1 || !$num2 || !$simbolo) {
