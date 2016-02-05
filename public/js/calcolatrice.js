@@ -2,23 +2,23 @@
 (function () {
     var htmlCalcolatrice = '<div>' +
         '<input type="text" id="visualizza"><br><br>' +
-        '<input type="button" class="btn" value="1" id="1">' +
-        '<input type="button" class="btn" value="2" id="2">' +
-        '<input type="button" class="btn" value="3" id="3">' +
-        '<input type="button" class="btn" value="+" id="sum"><br><br>' +
-        '<input type="button" class="btn" value="4" id="4">' +
-        '<input type="button" class="btn" value="5" id="5">' +
-        '<input type="button" class="btn" value="6" id="6">' +
-        '<input type="button" class="btn" value="-" id="dif"><br><br>' +
-        '<input type="button" class="btn" value="7" id="7">' +
-        '<input type="button" class="btn" value="8" id="8">' +
-        '<input type="button" class="btn" value="9" id="9">' +
-        '<input type="button" class="btn" value="x" id="mul"><br><br>' +
-        '<input type="button" class="btn" value="0" id="0">' +
-        '<input type="button" class="btn" value="00" id="00">' +
-        '<button class="btn" id="risultato">=</button>' +
-        '<input type="button" class="btn" value=":" id="div"><br><br>' +
-        '<input type="button" class="btn" value="C" id="can">' +
+        '<input type="button" class="btn-circle-sm" value="1" id="1">' +
+        '<input type="button" class="btn-circle-sm" value="2" id="2">' +
+        '<input type="button" class="btn-circle-sm" value="3" id="3">' +
+        '<input type="button" class="btn-circle-sm" value="+" id="sum"><br><br>' +
+        '<input type="button" class="btn-circle-sm" value="4" id="4">' +
+        '<input type="button" class="btn-circle-sm" value="5" id="5">' +
+        '<input type="button" class="btn-circle-sm" value="6" id="6">' +
+        '<input type="button" class="btn-circle-sm" value="-" id="dif"><br><br>' +
+        '<input type="button" class="btn-circle-sm" value="7" id="7">' +
+        '<input type="button" class="btn-circle-sm" value="8" id="8">' +
+        '<input type="button" class="btn-circle-sm" value="9" id="9">' +
+        '<input type="button" class="btn-circle-sm" value="x" id="mul"><br><br>' +
+        '<input type="button" class="btn-circle-sm" value="0" id="0">' +
+        '<input type="button" class="btn-circle-sm" value="00" id="00">' +
+        '<button class="btn-circle-sm" id="risultato">=</button>' +
+        '<input type="button" class="btn-circle-sm" value=":" id="div"><br><br>' +
+        '<input type="button" class="btn-circle-sm" value="C" id="can">' +
         '</div>';
     $('.calcolatrice').html(htmlCalcolatrice);
     $num1 = 0;
@@ -29,7 +29,9 @@
     $ris = 0;
     arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "00"];
     arr1 = ["sum", "dif", "div", "mul"];
-
+    $(function() {
+        $( "#myModal" ).draggable();
+    });
     arr.forEach(function (element) {
         $("#" + element).click(function () {
             if ($num1 == 0) {
