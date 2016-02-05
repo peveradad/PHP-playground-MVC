@@ -1,4 +1,3 @@
-
 (function () {
     var htmlCalcolatrice = '<div>' +
         '<input type="text" id="visualizza"><br><br>' +
@@ -29,8 +28,8 @@
     $ris = 0;
     arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "00"];
     arr1 = ["sum", "dif", "div", "mul"];
-    $(function() {
-        $( "#myModal" ).draggable();
+    $(function () {
+        $("#myModal").draggable();
     });
     arr.forEach(function (element) {
         $("#" + element).click(function () {
@@ -66,6 +65,90 @@
 
         });
     });
+    $( "#myModal" ).keypress(function(event) {
+            if (event.which == 43) {
+                if ($num1 == 0) {
+                    $num1Vis = $("#visualizza").val();
+                    $("#visualizza").val("");
+                }
+                $num1 = $num1 + 1;
+                $operazione = "sum";
+                $("#visualizza").val("");
+            }
+
+
+            else if (event.which == 45) {
+                if ($num1 == 0) {
+                    $num1Vis = $("#visualizza").val();
+                    $("#visualizza").val("");
+                }
+                $num1 = $num1 + 1;
+                $operazione = "dif";
+                $("#visualizza").val("");
+            }
+
+
+            else if (event.which == 47) {
+                if ($num1 == 0) {
+                    $num1Vis = $("#visualizza").val();
+                    $("#visualizza").val("");
+                }
+                $num1 = $num1 + 1;
+                $operazione = "div";
+                $("#visualizza").val("");
+            }
+
+
+
+            else if (event.which == 42) {
+                if ($num1 == 0) {
+                    $num1Vis = $("#visualizza").val();
+                    $("#visualizza").val("");
+                }
+                $num1 = $num1 + 1;
+                $operazione = "mul";
+                $("#visualizza").val("");
+            }
+
+
+            else if (event.which == 13) {
+                if ($num1 == 1) {
+                    console.log($num1Vis);
+                    console.log($num2Vis);
+                    console.log($operazione);
+                    var num1 = $num1Vis;
+                    var num2 = $("#visualizza").val()
+                    $num1Vis = "";
+                    $num2Vis = "";
+                    var operazione = $operazione
+                } else if ($num1 > 1) {
+                    console.log(num1);
+                    console.log($num2Vis);
+                    $ris = $num1;
+                    var num1 = $num2;
+                    var num2 = $("#visualizza").val()
+                    console.log(num1);
+                    operazione = $operazione;
+                    $num2Vis = "";
+                    console.log($operazione);
+                }
+                $.post("/calcolatrice/calcola",
+                    {
+                        num1: num1,
+                        num2: num2,
+                        operazione: operazione
+
+                    }, function (data) {
+                        console.log(data.result);
+                        $("#visualizza").val("");
+                        $("#visualizza").val(data.result);
+                        $num2 = data.result;
+                    });
+            }
+            console.log($operazione);
+            console.log($num1Vis);
+            console.log(event);
+        });
     $("#risultato").click(function () {
         if ($num1 == 1) {
             console.log($num1Vis);
@@ -100,5 +183,7 @@
                 $num2 = data.result;
             });
     });
+
+
 })
 ();
